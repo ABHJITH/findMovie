@@ -1,0 +1,39 @@
+<div class="container ">
+    <div class="jumbotron ">
+        <h3 class="text-center">Search For Any Movie</h3>
+        <form #userForm="ngForm" id="searchForm" >
+            
+            <input type="text" class="form-control"  placeholder="Search Movies..." name="movieName" [(ngModel)]="movieName">
+            <div class="text-center">
+            <button (click)="searchMovies(movieName)" type="button " class="btn btn-primary" style="margin-top: 20px;">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- <div *ngIf="result.Error">
+    <div class="text-center text-danger">
+    <h1>No Movies found</h1>
+    </div>
+</div> -->
+
+<div class="container">
+    <div id="movies" class="row "></div>
+    </div>
+<div *ngIf="movies" class="card-group ">
+    <div *ngFor="let movie of Search"  id="box"class="col-md-5 text-center col-xs-12" >
+       
+   
+          
+                <img src="{{movie.Poster}}">
+                <h5>{{movie.Title}}</h5>
+                <p class="card-text">{{movie?.Year}}</p>
+                <a  class="btn btn-primary" href="https://www.imdb.com/title/{{movie?.imdbID}}/" target="_blank"> Details</a>
+            
+          
+        
+    </div>
+</div>
+
+
+
+
